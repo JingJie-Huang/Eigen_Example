@@ -12,25 +12,25 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-     // Eigen 中所有向量和矩陣都是Eigen::Matrix，它是一个模板类。它的前三个参数为：数据类型，列(row)，行(column)
+     // Eigen 中所有向量和矩陣都是Eigen::Matrix，它是一个模板類。它的前三个參數為：数劇類型，列(row)，行(column)
      // 宣告一個2*3的float矩陣
      Eigen::Matrix<float, 2, 3> matrix_23;
 
      // 例如 Vector3d 實值上是 Eigen::Matrix<double, 3, 1>，即三维向量
      Eigen::Vector3d vector_3d;
-     // 这是一样的
+     // 宣告float型式的向量
      Eigen::Matrix<float, 3, 1> vector_3f;
 
      // Matrix3d 實質上是 Eigen::Matrix<double, 3, 3>
-     Eigen::Matrix3d matrix_33 = Eigen::Matrix3d::Zero(); //初始化为零
-     // 如果不确定矩陣大小，可以使用動態大小的矩阵
+     Eigen::Matrix3d matrix_33 = Eigen::Matrix3d::Zero(); //初始化為零
+     // 如果不確定矩陣大小，可以使用動態大小的矩陣
      Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> matrix_dynamic;
 
-     // 下面是对Eigen矩陣的操作
-     // 输入数劇（初始化）
+     // 下面是對Eigen矩陣的操作
+     // 輸入數據（初始化）
      matrix_23 << 1, 2, 3,
          4, 5, 6;
-     // 输出
+     // 輸出
      cout << "matrix_23:" << endl
           << matrix_23 << endl << endl;
 
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
      // 矩陣和向量相乘（實際上是矩陣和矩陣運算）
      vector_3d << 3, 2, 1;
      vector_3f << 4, 5, 6;
-     // 但是在Eigen里不能混合兩種不同類型的矩陣，像以下是错的示範
+     // 但是在Eigen里不能混合兩種不同類型的矩陣，像以下是錯誤的示範
      // Eigen::Matrix<double, 2, 1> result_wrong_type = matrix_23 * vector_3f;
      // 要進行顯式轉換
      Eigen::Matrix<double, 2, 1> result = matrix_23.cast<double>() * vector_3d;
@@ -61,7 +61,7 @@ int main(int argc, char **argv)
           << endl;
 
      // 矩陣運算需要注意的維度
-     // 試着取消下面的注解，看看Eigen會輸出什么錯誤
+     // 試著取消下面的注解，看看Eigen會輸出什么錯誤
      // Eigen::Matrix<double, 2, 3> result_wrong_dimension = matrix_23.cast<double>() * vector_3d;
 
      // 重新給與matrix_33初始值
