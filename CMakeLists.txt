@@ -11,5 +11,6 @@ set( CMAKE_CXX_FLAGS "-O3" )
 # 加入Eigen頭文件
 include_directories( "/usr/include/eigen3" )
 # 加入要編譯成執行檔的.cpp檔案
-add_executable( Eigen_Example Eigen_Example.cpp )
+add_executable( Eigen_Example1 Eigen_Example1.cpp )
+add_executable( Eigen_Example2 Eigen_Example2.cpp )
 
